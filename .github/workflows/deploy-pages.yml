@@ -30,7 +30,9 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        # Vinext includes platform-specific optional packages; npm install
+        # resolves the appropriate Linux bindings on the Pages runner.
+        run: npm install --no-audit --no-fund
 
       - name: Build static site
         run: npm run build
