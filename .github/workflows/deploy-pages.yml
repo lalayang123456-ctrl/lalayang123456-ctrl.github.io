@@ -40,9 +40,6 @@ jobs:
       - name: Test static export
         run: node --test tests/static-export.test.mjs
 
-      - name: Prepare GitHub Pages artifact
-        run: touch dist/client/.nojekyll
-
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
@@ -50,7 +47,6 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           path: dist/client
-          include-hidden-files: true
 
   deploy:
     environment:
