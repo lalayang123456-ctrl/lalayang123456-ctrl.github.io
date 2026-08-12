@@ -17,6 +17,7 @@ test("exports Gang Yang's academic portfolio for GitHub Pages", async () => {
   assert.match(html, /assets\/images\/signature\.jpg/);
   assert.match(html, /assets\/images\/walkerbench-figure\.png/);
   assert.match(html, /assets\/images\/forest-remix-figure\.png/);
+  assert.match(html, /href="https:\/\/drive\.google\.com\/file\/d\/112mWVeacZQwwdJXDcHQVNusAFwlCSFxy\/view\?usp=drive_link"/);
   assert.match(html, /href="https:\/\/github\.com\/lalayang123456-ctrl\/WalkerBench"/);
   assert.match(html, /href="https:\/\/www\.youtube\.com\/watch\?v=GBDFQY9WLPo"/);
   assert.doesNotMatch(html, /href="[^"]*\.pdf(?:[?#][^"]*)?"/i);

@@ -26,7 +26,7 @@ const publications = [
     authors:
       "Zhiqi Ge*, Gang Yang*, Ziyang Pan, Jingzhe Zhu, Yuancheng Gu, Juncheng Li, Qizhou Wang, Rui Tang, Siliang Tang, Jun Xiao, Yueting Zhuang",
     note: "* Equal contribution",
-    href: "/WalkerBench-ECCV-2026.pdf",
+    href: "https://drive.google.com/file/d/112mWVeacZQwwdJXDcHQVNusAFwlCSFxy/view?usp=drive_link",
     image: "/assets/images/walkerbench-figure.png",
     imageAlt: "WalkerBench comparison between static perception and interactive spatial intelligence",
     additionalResources: [
@@ -39,7 +39,7 @@ const publications = [
     authors:
       "Ambrose Kersley*, Gang Yang*, Yida Zhao*, Yihao Tao, Alhassane Jalloh, Sechan Yi",
     note: "* Equal contribution, listed alphabetically",
-    href: "/Forest-Remix-XRM-2026.pdf",
+    href: null,
     image: "/assets/images/forest-remix-figure.png",
     imageAlt: "Forest Remix tangible controller design",
     additionalResources: [
@@ -291,7 +291,13 @@ export default function Home() {
                 <p className="publication-note">{publication.note}</p>
               </div>
               <div className="publication-links">
-                <span className="resource-label">PAPER</span>
+                {publication.href ? (
+                  <a className="resource-link" href={publication.href} target="_blank" rel="noreferrer">
+                    PAPER <span>↗</span>
+                  </a>
+                ) : (
+                  <span className="resource-label">PAPER</span>
+                )}
                 {publication.additionalResources.map((resource) => (
                   resource.href ? (
                     <a className="resource-link" href={resource.href} target="_blank" rel="noreferrer" key={resource.label}>
