@@ -140,8 +140,9 @@ const experience = [
     period: "DEC 2025 — PRESENT",
     role: "Research Intern, Embodied AI",
     place: "Unitree Robotics · Hangzhou, China",
+    overview:
+      "Advancing embodied intelligence for humanoid robots from high-level semantic decision-making to low-level physical execution, establishing an end-to-end R&D loop spanning scenes and data, model training, simulation-based evaluation, and real-robot deployment. My work covers embodied navigation, simulation and data infrastructure, multimodal model training, and whole-body motion deployment on the Unitree G1; this work has resulted in a co-first-authored ECCV 2026 paper, a first-authored AAAI paper under review, and successful validation on real robots.",
     details: [
-      "Advancing embodied intelligence for humanoid robots from high-level semantic decision-making to low-level physical execution, establishing an end-to-end R&D loop spanning scenes and data, model training, simulation-based evaluation, and real-robot deployment. My work covers embodied navigation, simulation and data infrastructure, multimodal model training, and whole-body motion deployment on the Unitree G1; this research has resulted in a co-first-author paper at ECCV 2026 and successful validation on real robots.",
       "Embodied Navigation & High-Level Decision-Making: Led the development of humanoid robot navigation systems for urban and open-world environments, integrating natural-language tasks, maps and external tool use, first-person visual perception, long-horizon spatial reasoning, and robot action execution. Unified interfaces across online environments, 3D simulation, and real robots to support active perception, closed-loop navigation, and robust decision-making under complex perturbations.",
       "Simulation, Data & Model Loop: Built simulation and data-production infrastructure for training and evaluating embodied models, covering 3D scene construction, task and trajectory generation, interactive rendering, data cleaning and quality control, multimodal model fine-tuning, and automated evaluation. The pipeline supports scalable training-data production, rapid model iteration, and consistent validation across environments.",
       "Whole-Body Motion Generation & Real-Robot Deployment: Advancing a pipeline that converts human motion from public videos into executable whole-body motions for the Unitree G1. The work spans video collection and automated filtering, human-motion recovery and robot motion retargeting, multimodal motion-generation model training, streaming inference and cloud–edge communication, motion-tracking control, and simulation-based dynamics validation, culminating in closed-loop execution and system integration on real robots.",
@@ -152,6 +153,7 @@ const experience = [
     period: "JUN 2025 — SEP 2025",
     role: "Research Assistant",
     place: "PEMC Group, University of Nottingham · Nottingham, UK",
+    overview: null,
     details: [
       "Supported research on AI-enhanced Model Predictive Control (MPC) for power converters in renewable-energy systems, covering modelling, neural-network inference, and hardware-oriented validation.",
     ],
@@ -161,6 +163,7 @@ const experience = [
     period: "JUN 2024 — SEP 2024",
     role: "Data Mining Intern",
     place: "Ping An Insurance · Ningbo, China",
+    overview: null,
     details: [
       "Engineered a multi-point user tracking pipeline for the Haochezhu app, enabling granular monitoring of user interactions within the insurance purchase flow.",
       "Utilized SQL-based ETL processes for large-scale data cleaning and feature extraction, eliminating anomalous records and ensuring robust downstream analytics.",
@@ -385,9 +388,23 @@ export default function Home() {
                 <span className="experience-toggle" aria-hidden="true">+</span>
               </summary>
               <div className="experience-details">
+                {item.overview ? <p className="experience-overview">{item.overview}</p> : null}
                 {index === 1 ? <p className="experience-project-note">Details: see Research Projects</p> : null}
                 <ul>
-                  {item.details.map((detail) => <li key={detail}>{detail}</li>)}
+                  {item.details.map((detail) => {
+                    const separatorIndex = detail.indexOf(": ");
+
+                    return (
+                      <li key={detail}>
+                        {separatorIndex > 0 ? (
+                          <>
+                            <strong>{detail.slice(0, separatorIndex)}:</strong>{" "}
+                            {detail.slice(separatorIndex + 2)}
+                          </>
+                        ) : detail}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             </details>

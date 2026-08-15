@@ -13,6 +13,9 @@ test("exports Gang Yang's academic portfolio for GitHub Pages", async () => {
   assert.match(html, /Publications/);
   assert.match(html, /Research Projects/);
   assert.match(html, /Professional Experience/);
+  assert.match(html, /co-first-authored ECCV 2026 paper/);
+  assert.match(html, /first-authored AAAI paper under review/);
+  assert.match(html, /<strong>Embodied Navigation &amp; High-Level Decision-Making(?:<!-- -->)?:<\/strong>/);
   assert.match(html, /assets\/images\/profile-photo\.jpg/);
   assert.match(html, /assets\/images\/signature\.jpg/);
   assert.match(html, /assets\/images\/walkerbench-figure\.png/);
