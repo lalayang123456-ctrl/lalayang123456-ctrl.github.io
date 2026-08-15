@@ -141,7 +141,10 @@ const experience = [
     role: "Research Intern, Embodied AI",
     place: "Unitree Robotics · Hangzhou, China",
     details: [
-      "Conducted embodied AI and spatial intelligence research on multimodal urban navigation, VLM fine-tuning, 2DGS/real-robot closed-loop evaluation, and large-scale interactive spatial intelligence benchmarking.",
+      "Advancing embodied intelligence for humanoid robots from high-level semantic decision-making to low-level physical execution, establishing an end-to-end R&D loop spanning scenes and data, model training, simulation-based evaluation, and real-robot deployment. My work covers embodied navigation, simulation and data infrastructure, multimodal model training, and whole-body motion deployment on the Unitree G1; this research has resulted in a co-first-author paper at ECCV 2026 and successful validation on real robots.",
+      "Embodied Navigation & High-Level Decision-Making: Led the development of humanoid robot navigation systems for urban and open-world environments, integrating natural-language tasks, maps and external tool use, first-person visual perception, long-horizon spatial reasoning, and robot action execution. Unified interfaces across online environments, 3D simulation, and real robots to support active perception, closed-loop navigation, and robust decision-making under complex perturbations.",
+      "Simulation, Data & Model Loop: Built simulation and data-production infrastructure for training and evaluating embodied models, covering 3D scene construction, task and trajectory generation, interactive rendering, data cleaning and quality control, multimodal model fine-tuning, and automated evaluation. The pipeline supports scalable training-data production, rapid model iteration, and consistent validation across environments.",
+      "Whole-Body Motion Generation & Real-Robot Deployment: Advancing a pipeline that converts human motion from public videos into executable whole-body motions for the Unitree G1. The work spans video collection and automated filtering, human-motion recovery and robot motion retargeting, multimodal motion-generation model training, streaming inference and cloud–edge communication, motion-tracking control, and simulation-based dynamics validation, culminating in closed-loop execution and system integration on real robots.",
     ],
     accent: "red",
   },
@@ -382,7 +385,7 @@ export default function Home() {
                 <span className="experience-toggle" aria-hidden="true">+</span>
               </summary>
               <div className="experience-details">
-                {index < 2 ? <p className="experience-project-note">Details: see Research Projects</p> : null}
+                {index === 1 ? <p className="experience-project-note">Details: see Research Projects</p> : null}
                 <ul>
                   {item.details.map((detail) => <li key={detail}>{detail}</li>)}
                 </ul>
