@@ -937,16 +937,6 @@ h1 {
   margin: 0;
 }
 
-.experience-project-note {
-  color: var(--blue);
-  display: block;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  margin: 0 0 10px calc(190px + 3vw);
-  text-transform: uppercase;
-}
-
 .experience-list p {
   color: var(--muted);
   margin: 0;
@@ -1443,10 +1433,6 @@ a:focus-visible,
   .experience-details .experience-overview {
     margin-left: 0;
     margin-right: 0;
-  }
-
-  .experience-project-note {
-    margin-left: 0;
   }
 
   .experience-list > details::after {

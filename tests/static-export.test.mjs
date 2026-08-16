@@ -16,6 +16,8 @@ test("exports Gang Yang's academic portfolio for GitHub Pages", async () => {
   assert.match(html, /co-first-authored ECCV 2026 paper/);
   assert.match(html, /first-authored AAAI paper under review/);
   assert.match(html, /<strong>Embodied Navigation &amp; High-Level Decision-Making(?:<!-- -->)?:<\/strong>/);
+  assert.match(html, /neural-network-enhanced model predictive control/);
+  assert.match(html, /<strong>Intelligent Control &amp; Model Research(?:<!-- -->)?:<\/strong>/);
   assert.match(html, /assets\/images\/profile-photo\.jpg/);
   assert.match(html, /assets\/images\/signature\.jpg/);
   assert.match(html, /assets\/images\/walkerbench-figure\.png/);
@@ -30,4 +32,9 @@ test("exports Gang Yang's academic portfolio for GitHub Pages", async () => {
   assert.doesNotMatch(html, />POSTER</);
   assert.doesNotMatch(html, /href="[^"]*\.pdf(?:[?#][^"]*)?"/i);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/);
+
+  const publicationsStart = html.indexOf('<section class="content-section" id="publications">');
+  const educationStart = html.indexOf('<section class="content-section" id="education">');
+  const publicationsHtml = html.slice(publicationsStart, educationStart);
+  assert.ok(publicationsHtml.indexOf("CityLoop: Sandbox") < publicationsHtml.indexOf("Forest Remix:"));
 });

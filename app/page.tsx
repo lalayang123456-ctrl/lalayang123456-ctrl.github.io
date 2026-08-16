@@ -35,6 +35,17 @@ const publications = [
     ],
   },
   {
+    venue: "UNDER REVIEW",
+    title: "CityLoop: Sandbox for Tool-Grounded Urban Navigation",
+    authors: "Gang Yang, et al.",
+    note: null,
+    href: "https://drive.google.com/file/d/1Dygww9mM7rm8daEqCgXXLXIrhRxDZFSh/view",
+    showPaper: true,
+    image: "/assets/images/cityloop-detail.webp",
+    imageAlt: "CityLoop sandbox and RouteGround closed-loop system overview",
+    additionalResources: [],
+  },
+  {
     venue: "XRM 2026",
     title: "Forest Remix: A Musical Forest with Custom Embodied Tangible\u00A0Hardware",
     authors:
@@ -47,17 +58,6 @@ const publications = [
     additionalResources: [
       { label: "DEMO", href: "https://www.youtube.com/watch?v=GBDFQY9WLPo" },
     ],
-  },
-  {
-    venue: "UNDER REVIEW",
-    title: "CityLoop: Sandbox for Tool-Grounded Urban Navigation",
-    authors: "Gang Yang, et al.",
-    note: null,
-    href: "https://drive.google.com/file/d/1Dygww9mM7rm8daEqCgXXLXIrhRxDZFSh/view",
-    showPaper: true,
-    image: "/assets/images/cityloop-detail.webp",
-    imageAlt: "CityLoop sandbox and RouteGround closed-loop system overview",
-    additionalResources: [],
   },
 ];
 
@@ -165,9 +165,11 @@ const experience = [
     period: "JUN 2025 — SEP 2025",
     role: "Research Assistant",
     place: "PEMC Group, University of Nottingham · Nottingham, UK",
-    overview: null,
+    overview:
+      "Conducted cross-disciplinary research at the intersection of intelligent control and power electronics, contributing to the design and validation of neural-network-enhanced model predictive control. The work covered dataset construction, model training, and closed-loop evaluation.",
     details: [
-      "Supported research on AI-enhanced Model Predictive Control (MPC) for power converters in renewable-energy systems, covering modelling, neural-network inference, and hardware-oriented validation.",
+      "Intelligent Control & Model Research: Investigated data-driven learning and replacement of model predictive control decision stages for motor-drive applications, completing model training, optimization, and comparative evaluation.",
+      "Simulation Evaluation & Research Collaboration: Developed closed-loop models, performance evaluations, and experimental analyses in MATLAB/Simulink, delivering iterative solutions under interdisciplinary supervision.",
     ],
     accent: "blue",
   },
@@ -389,7 +391,7 @@ export default function Home() {
       <section className="content-section" id="experience">
         <SectionHeading number="05" title="Professional Experience" />
         <div className="experience-list">
-          {experience.map((item, index) => (
+          {experience.map((item) => (
             <details className={item.accent} key={item.role + item.period}>
               <summary>
                 <time>{item.period}</time>
@@ -401,7 +403,6 @@ export default function Home() {
               </summary>
               <div className="experience-details">
                 {item.overview ? <p className="experience-overview">{item.overview}</p> : null}
-                {index === 1 ? <p className="experience-project-note">Details: see Research Projects</p> : null}
                 <ul>
                   {item.details.map((detail) => {
                     const separatorIndex = detail.indexOf(": ");
