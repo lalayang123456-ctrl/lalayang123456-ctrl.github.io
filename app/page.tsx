@@ -27,6 +27,7 @@ const publications = [
       "Zhiqi Ge*, Gang Yang*, Ziyang Pan, Jingzhe Zhu, Yuancheng Gu, Juncheng Li, Qizhou Wang, Rui Tang, Siliang Tang, Jun Xiao, Yueting Zhuang",
     note: "* Equal contribution",
     href: "https://drive.google.com/file/d/112mWVeacZQwwdJXDcHQVNusAFwlCSFxy/view?usp=drive_link",
+    showPaper: true,
     image: "/assets/images/walkerbench-figure.png",
     imageAlt: "WalkerBench comparison between static perception and interactive spatial intelligence",
     additionalResources: [
@@ -40,12 +41,23 @@ const publications = [
       "Ambrose Kersley*, Gang Yang*, Yida Zhao*, Yihao Tao, Alhassane Jalloh, Sechan Yi",
     note: "* Equal contribution, listed alphabetically",
     href: null,
+    showPaper: false,
     image: "/assets/images/forest-remix-figure.png",
     imageAlt: "Forest Remix tangible controller design",
     additionalResources: [
-      { label: "POSTER", href: null },
       { label: "DEMO", href: "https://www.youtube.com/watch?v=GBDFQY9WLPo" },
     ],
+  },
+  {
+    venue: "UNDER REVIEW",
+    title: "CityLoop: Sandbox for Tool-Grounded Urban Navigation",
+    authors: "Gang Yang, et al.",
+    note: null,
+    href: "https://drive.google.com/file/d/1Dygww9mM7rm8daEqCgXXLXIrhRxDZFSh/view",
+    showPaper: true,
+    image: "/assets/images/cityloop-detail.webp",
+    imageAlt: "CityLoop sandbox and RouteGround closed-loop system overview",
+    additionalResources: [],
   },
 ];
 
@@ -221,9 +233,9 @@ export default function Home() {
               <a href="https://www.linkedin.com/in/gang-yang-368a37338" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
                 <FaLinkedinIn aria-hidden="true" />
               </a>
-              <span className="profile-icon-disabled cv-icon-wrapper" aria-label="Curriculum Vitae" title="Curriculum Vitae">
+              <a className="cv-icon-wrapper" href="https://drive.google.com/file/d/1ZlrYBtrM1tLMUCA3aRpkSiSynUUzF3f8/view" target="_blank" rel="noreferrer" aria-label="Curriculum Vitae" title="Curriculum Vitae">
                 <span className="cv-icon-text" aria-hidden="true">CV</span>
-              </span>
+              </a>
             </div>
           </div>
         </div>
@@ -294,16 +306,16 @@ export default function Home() {
                     </span>
                   ))}
                 </p>
-                <p className="publication-note">{publication.note}</p>
+                {publication.note ? <p className="publication-note">{publication.note}</p> : null}
               </div>
               <div className="publication-links">
                 {publication.href ? (
                   <a className="resource-link" href={publication.href} target="_blank" rel="noreferrer">
                     PAPER <span>↗</span>
                   </a>
-                ) : (
+                ) : publication.showPaper !== false ? (
                   <span className="resource-label">PAPER</span>
-                )}
+                ) : null}
                 {publication.additionalResources.map((resource) => (
                   resource.href ? (
                     <a className="resource-link" href={resource.href} target="_blank" rel="noreferrer" key={resource.label}>
