@@ -152,12 +152,13 @@ const experience = [
     period: "DEC 2025 — PRESENT",
     role: "Research Intern, Embodied AI",
     place: "Unitree Robotics · Hangzhou, China",
-    overview:
-      "Advancing embodied intelligence for humanoid robots from high-level semantic decision-making to low-level physical execution, establishing an end-to-end R&D loop spanning scenes and data, model training, simulation-based evaluation, and real-robot deployment. My work covers embodied navigation, simulation and data infrastructure, multimodal model training, and whole-body motion deployment on the Unitree G1; this work has resulted in a co-first-authored ECCV 2026 paper, a first-authored AAAI paper under review, and successful validation on real robots.",
+    detailHeading: "Humanoid Robot Navigation in Open Environments",
+    overview: null,
     details: [
-      "Embodied Navigation & High-Level Decision-Making: Led the development of humanoid robot navigation systems for urban and open-world environments, integrating natural-language tasks, maps and external tool use, first-person visual perception, long-horizon spatial reasoning, and robot action execution. Unified interfaces across online environments, 3D simulation, and real robots to support active perception, closed-loop navigation, and robust decision-making under complex perturbations.",
-      "Simulation, Data & Model Loop: Built simulation and data-production infrastructure for training and evaluating embodied models, covering 3D scene construction, task and trajectory generation, interactive rendering, data cleaning and quality control, multimodal model fine-tuning, and automated evaluation. The pipeline supports scalable training-data production, rapid model iteration, and consistent validation across environments.",
-      "Whole-Body Motion Generation & Real-Robot Deployment: Advancing a pipeline that converts human motion from public videos into executable whole-body motions for the Unitree G1. The work spans video collection and automated filtering, human-motion recovery and robot motion retargeting, multimodal motion-generation model training, streaming inference and cloud–edge communication, motion-tracking control, and simulation-based dynamics validation, culminating in closed-loop execution and system integration on real robots.",
+      "Led the development of a closed-loop humanoid robot navigation system for natural-language-driven, long-horizon navigation in open environments, integrating maps and external tools, first-person visual perception, and vision-language model decision-making across online environments, 2D Gaussian Splatting (2DGS) simulation, and deployment on a Unitree G1 robot.",
+      "To address spatial-state forgetting during long-horizon operation and inconsistent decisions under noisy observations, developed explicit spatial memory and active perception mechanisms together with tool–vision conflict training, improving navigation decision accuracy under medium noise from 24.9% to 59.0%.",
+      "Built a data-generation and closed-loop evaluation pipeline that continuously produces navigation tasks, trajectories, and perturbed scenarios, enabling rapid iteration of navigation policies across online maps and 2DGS simulation while reducing the cost of real-robot validation.",
+      "Completed long-distance zero-shot navigation in real urban environments on the Unitree G1; parts of this work contributed to WalkerBench (ECCV 2026) and CityLoop (under review).",
     ],
     accent: "red",
   },
@@ -165,6 +166,7 @@ const experience = [
     period: "JUN 2025 — SEP 2025",
     role: "Research Assistant",
     place: "PEMC Group, University of Nottingham · Nottingham, UK",
+    detailHeading: null,
     overview:
       "Conducted cross-disciplinary research at the intersection of intelligent control and power electronics, contributing to the design and validation of neural-network-enhanced model predictive control. The work covered dataset construction, model training, and closed-loop evaluation.",
     details: [
@@ -177,6 +179,7 @@ const experience = [
     period: "JUN 2024 — SEP 2024",
     role: "Data Mining Intern",
     place: "Ping An Insurance · Ningbo, China",
+    detailHeading: null,
     overview: null,
     details: [
       "Engineered a multi-point user tracking pipeline for the Haochezhu app, enabling granular monitoring of user interactions within the insurance purchase flow.",
@@ -402,6 +405,7 @@ export default function Home() {
                 <span className="experience-toggle" aria-hidden="true">+</span>
               </summary>
               <div className="experience-details">
+                {item.detailHeading ? <h4 className="experience-detail-heading">{item.detailHeading}</h4> : null}
                 {item.overview ? <p className="experience-overview">{item.overview}</p> : null}
                 <ul>
                   {item.details.map((detail) => {

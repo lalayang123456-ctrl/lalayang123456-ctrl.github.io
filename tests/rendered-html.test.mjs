@@ -34,6 +34,8 @@ test("server-renders Gang Yang's academic portfolio", async () => {
   assert.match(html, /Publications/);
   assert.match(html, /Research Projects/);
   assert.match(html, /Professional Experience/);
+  assert.match(html, /Humanoid Robot Navigation in Open Environments/);
+  assert.match(html, /24\.9% to 59\.0%/);
   assert.match(html, /assets\/images\/profile-photo\.jpg/);
   assert.match(html, /assets\/images\/signature\.jpg/);
   assert.match(html, /assets\/images\/walkerbench-figure\.png/);

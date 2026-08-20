@@ -13,9 +13,9 @@ test("exports Gang Yang's academic portfolio for GitHub Pages", async () => {
   assert.match(html, /Publications/);
   assert.match(html, /Research Projects/);
   assert.match(html, /Professional Experience/);
-  assert.match(html, /co-first-authored ECCV 2026 paper/);
-  assert.match(html, /first-authored AAAI paper under review/);
-  assert.match(html, /<strong>Embodied Navigation &amp; High-Level Decision-Making(?:<!-- -->)?:<\/strong>/);
+  assert.match(html, /Humanoid Robot Navigation in Open Environments/);
+  assert.match(html, /improving navigation decision accuracy under medium noise from 24\.9% to 59\.0%/);
+  assert.match(html, /Completed long-distance zero-shot navigation in real urban environments/);
   assert.match(html, /neural-network-enhanced model predictive control/);
   assert.match(html, /<strong>Intelligent Control &amp; Model Research(?:<!-- -->)?:<\/strong>/);
   assert.match(html, /assets\/images\/profile-photo\.jpg/);
