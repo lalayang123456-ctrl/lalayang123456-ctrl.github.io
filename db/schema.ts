@@ -1,4 +1,11 @@
-// Intentionally empty by default.
-// Add Drizzle tables here when the site actually needs a database.
-// See examples/d1/db/schema.ts for an opt-in example.
-export {};
+import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
+
+export const visitorTotals = sqliteTable("visitor_totals", {
+  id: integer("id").primaryKey(),
+  pageViews: integer("page_views").notNull().default(0),
+});
+
+export const visitorCountries = sqliteTable("visitor_countries", {
+  countryCode: text("country_code").primaryKey(),
+  views: integer("views").notNull().default(0),
+});

@@ -166,12 +166,12 @@ const experience = [
     period: "JUN 2025 — SEP 2025",
     role: "Research Assistant",
     place: "PEMC Group, University of Nottingham · Nottingham, UK",
-    detailHeading: null,
-    overview:
-      "Conducted cross-disciplinary research at the intersection of intelligent control and power electronics, contributing to the design and validation of neural-network-enhanced model predictive control. The work covered dataset construction, model training, and closed-loop evaluation.",
+    detailHeading: "Neural-Network-Enhanced Model Predictive Control",
+    overview: null,
     details: [
-      "Intelligent Control & Model Research: Investigated data-driven learning and replacement of model predictive control decision stages for motor-drive applications, completing model training, optimization, and comparative evaluation.",
-      "Simulation Evaluation & Research Collaboration: Developed closed-loop models, performance evaluations, and experimental analyses in MATLAB/Simulink, delivering iterative solutions under interdisciplinary supervision.",
+      "To address the high computational cost of online prediction and switching decisions in conventional FCS-MPC, built a closed-loop simulation system for permanent-magnet synchronous motor (PMSM) drives and investigated neural networks for current prediction and switching-state decision-making.",
+      "Designed and compared two feedforward neural network (FNN) controllers—one based on intermediate current prediction and the other on end-to-end switching decisions—and used class balancing and noise perturbation to improve robustness to minority switching states and measurement noise.",
+      "Integrated the neural-network controllers into a MATLAB/Simulink motor-control loop and systematically evaluated tracking error, dynamic response, and computational cost. The best-performing design achieved a current RMSE of approximately 0.30 A and a settling time of approximately 0.41 s, with closed-loop performance broadly matching conventional FCS-MPC.",
     ],
     accent: "blue",
   },
