@@ -238,7 +238,7 @@ export default function Home() {
               <a href="https://www.linkedin.com/in/gang-yang-368a37338" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
                 <FaLinkedinIn aria-hidden="true" />
               </a>
-              <a className="cv-icon-wrapper" href="https://drive.google.com/file/d/1ZlrYBtrM1tLMUCA3aRpkSiSynUUzF3f8/view" target="_blank" rel="noreferrer" aria-label="Curriculum Vitae" title="Curriculum Vitae">
+              <a className="cv-icon-wrapper" href="https://drive.google.com/file/d/1-VkwN83FM33FkVEFDZYl_CUZkbqBcApU/view?usp=sharing" target="_blank" rel="noreferrer" aria-label="Curriculum Vitae" title="Curriculum Vitae">
                 <span className="cv-icon-text" aria-hidden="true">CV</span>
               </a>
             </div>
