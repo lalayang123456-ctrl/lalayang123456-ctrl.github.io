@@ -1,6 +1,7 @@
 /** Cloudflare Worker entry point for the vinext-starter template. */
 import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } from "vinext/server/image-optimization";
 import handler from "vinext/server/app-router-entry";
+import { hourlySchema, incrementHourly, pruneHourly, retentionCutoff, singaporeHour } from "./visitor-trends";
 
 interface Env {
   ASSETS: Fetcher;
@@ -22,6 +23,7 @@ interface ExecutionContext {
 type VisitorRow = { country_code: string; views: number };
 
 const visitorSchema = [
+  hourlySchema,
   `CREATE TABLE IF NOT EXISTS visitor_totals (
     id INTEGER PRIMARY KEY,
     page_views INTEGER NOT NULL DEFAULT 0
@@ -107,6 +109,12 @@ async function handleVisitors(request: Request, env: Env) {
         ).bind(countryCode),
       );
     }
+
+    const now = new Date();
+    updates.push(
+      env.DB.prepare(incrementHourly).bind(singaporeHour(now), /^[A-Z]{2}$/.test(countryCode) ? countryCode : "UNKNOWN"),
+      env.DB.prepare(pruneHourly).bind(retentionCutoff(now)),
+    );
 
     await env.DB.batch(updates);
   } else if (request.method !== "GET") {
