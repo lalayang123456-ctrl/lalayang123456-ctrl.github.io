@@ -26,7 +26,7 @@ const publications = [
     authors:
       "Zhiqi Ge*, Gang Yang*, Ziyang Pan, Jingzhe Zhu, Yuancheng Gu, Juncheng Li, Qizhou Wang, Rui Tang, Siliang Tang, Jun Xiao, Yueting Zhuang",
     note: "* Equal contribution",
-    href: "https://drive.google.com/file/d/112mWVeacZQwwdJXDcHQVNusAFwlCSFxy/view?usp=drive_link",
+    href: "https://media.eventhosts.cc/Conferences/ECCV2026/pdfs/11135.pdf",
     showPaper: true,
     image: "/assets/images/walkerbench-figure.png",
     imageAlt: "WalkerBench comparison between static perception and interactive spatial intelligence",

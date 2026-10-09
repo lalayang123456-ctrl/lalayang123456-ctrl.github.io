@@ -29,11 +29,11 @@ test("exports Gang Yang's academic portfolio for GitHub Pages", async () => {
   assert.match(html, /UNDER REVIEW/);
   assert.match(html, /href="https:\/\/drive\.google\.com\/file\/d\/1-VkwN83FM33FkVEFDZYl_CUZkbqBcApU\/view\?usp=sharing"/);
   assert.match(html, /href="https:\/\/drive\.google\.com\/file\/d\/1Dygww9mM7rm8daEqCgXXLXIrhRxDZFSh\/view"/);
-  assert.match(html, /href="https:\/\/drive\.google\.com\/file\/d\/112mWVeacZQwwdJXDcHQVNusAFwlCSFxy\/view\?usp=drive_link"/);
+  assert.match(html, /href="https:\/\/media\.eventhosts\.cc\/Conferences\/ECCV2026\/pdfs\/11135\.pdf"/);
   assert.match(html, /href="https:\/\/github\.com\/lalayang123456-ctrl\/WalkerBench"/);
   assert.match(html, /href="https:\/\/www\.youtube\.com\/watch\?v=GBDFQY9WLPo"/);
   assert.doesNotMatch(html, />POSTER</);
-  assert.doesNotMatch(html, /href="[^"]*\.pdf(?:[?#][^"]*)?"/i);
+  assert.doesNotMatch(html, /href="(?!https?:\/\/)[^"]*\.pdf(?:[?#][^"]*)?"/i);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/);
 
   const publicationsStart = html.indexOf('<section class="content-section" id="publications">');
