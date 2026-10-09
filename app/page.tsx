@@ -229,9 +229,9 @@ export default function Home() {
               <a href="mailto:gangyang@u.nus.edu" aria-label="Email" title="Email">
                 <FaEnvelope aria-hidden="true" />
               </a>
-              <span className="profile-icon-disabled" aria-label="Google Scholar" title="Google Scholar">
+              <a href="https://scholar.google.com/citations?hl=en&user=f9d0KmAAAAAJ" target="_blank" rel="noreferrer" aria-label="Google Scholar" title="Google Scholar">
                 <SiGooglescholar aria-hidden="true" />
-              </span>
+              </a>
               <a href="https://github.com/lalayang123456-ctrl" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
                 <FaGithub aria-hidden="true" />
               </a>
