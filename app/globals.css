@@ -387,7 +387,8 @@ h1 {
   margin-top: 10px;
 }
 
-.hero-intro a {
+.hero-intro a,
+.news-item p a {
   text-decoration: underline;
   text-decoration-color: var(--red);
   text-decoration-thickness: 1px;
@@ -395,7 +396,8 @@ h1 {
   transition: color 200ms ease;
 }
 
-.hero-intro a:hover {
+.hero-intro a:hover,
+.news-item p a:hover {
   color: var(--red);
 }
 
@@ -1204,6 +1206,14 @@ a:focus-visible,
     letter-spacing: 0.1em;
   }
 
+  /* Interest tags wrap here; keep the square in the empty band below them,
+     level with the scroll cue. */
+  .shape-square {
+    bottom: 3.5vh;
+    left: 4vw;
+    right: auto;
+  }
+
   .news-list,
   .publication-list,
   .education-grid,
@@ -1284,6 +1294,11 @@ a:focus-visible,
   .scroll-cue {
     bottom: 28px;
     right: 24px;
+  }
+
+  .shape-square {
+    bottom: 30px;
+    left: 24px;
   }
 
   .content-section {

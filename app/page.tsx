@@ -7,6 +7,11 @@ const selfName = "Gang Yang";
 
 const news = [
   {
+    date: "NOV 2026",
+    text: "Our RoboColosseum is now open! Submit your policy and see where it ranks on real robots.",
+    link: { label: "RoboColosseum", href: "https://robocolosseum.ai/" },
+  },
+  {
     date: "AUG 2026",
     text: "Joined the National University of Singapore to study for an MSc in Robotics.",
   },
@@ -234,6 +239,19 @@ const experience = [
   },
 ];
 
+function NewsText({ text, link }: { text: string; link?: { label: string; href: string } }) {
+  const linkStart = link ? text.indexOf(link.label) : -1;
+  if (!link || linkStart < 0) return text;
+
+  return (
+    <>
+      {text.slice(0, linkStart)}
+      <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+      {text.slice(linkStart + link.label.length)}
+    </>
+  );
+}
+
 function SectionHeading({ number, title }: { number: string; title: string }) {
   return (
     <div className="section-heading">
@@ -294,7 +312,7 @@ export default function Home() {
             <span className="shape-circle" />
             <span className="shape-square" />
           </div>
-          <p className="hero-kicker">EMBODIED AI / VLN / SPATIAL INTELLIGENCE</p>
+          <p className="hero-kicker">EMBODIED AI / VLN / VLA</p>
           <p className="hero-title">
             <span className="hero-title-line">Building intelligent <span className="hero-accent-agents">agents</span> that</span>
             <span className="hero-title-line">
@@ -306,10 +324,10 @@ export default function Home() {
             <p>
               I am an MSc Robotics student at the National University of Singapore, where I work in{" "}
               <a href="https://magiclab-nus.github.io/" target="_blank" rel="noreferrer">MagicLab</a> under the supervision of{" "}
-              <a href="https://jiafei1224.github.io/" target="_blank" rel="noreferrer">Prof. Jiafei Duan</a>. My research sits at the intersection of embodied AI, multimodal vision-language models, spatial intelligence, and robot learning.
+              <a href="https://jiafei1224.github.io/" target="_blank" rel="noreferrer">Prof. Jiafei Duan</a>. My research sits at the intersection of embodied AI, vision-language navigation, spatial intelligence, vision-language-action models, and real-world robot evaluation.
             </p>
             <p>
-              I build benchmarks, learning systems, and interactive experiences that connect visual reasoning with physical action — from global-scale urban navigation to tangible mixed-reality systems.
+              I build benchmarks and closed-loop systems that connect visual reasoning with physical action — from global-scale urban navigation on humanoid robots to evaluating robot policies on real robots across embodiments.
             </p>
             <p>
               I enjoy travelling, hiking, fitness training, and guitar. These pursuits bring balance, energy, and new perspectives to my life, while keeping me open-minded, resilient, and curious.
@@ -318,8 +336,8 @@ export default function Home() {
           <div className="interest-list">
             <span>Embodied AI</span>
             <span>Vision-Language Navigation</span>
-            <span>Multimodal LLMs</span>
-            <span>Robot Learning</span>
+            <span>Vision-Language-Action Models</span>
+            <span>Robot Evaluation &amp; Benchmarking</span>
           </div>
           <a className="scroll-cue" href="#news">SCROLL TO EXPLORE <span>↓</span></a>
         </div>
@@ -331,7 +349,7 @@ export default function Home() {
           {news.map((item) => (
             <article className="news-item" key={`${item.date}-${item.text}`}>
               <time>{item.date}</time>
-              <p>{item.text}</p>
+              <p><NewsText text={item.text} link={item.link} /></p>
               <span aria-hidden="true">●</span>
             </article>
           ))}
