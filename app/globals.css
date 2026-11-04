@@ -387,6 +387,18 @@ h1 {
   margin-top: 10px;
 }
 
+.hero-intro a {
+  text-decoration: underline;
+  text-decoration-color: var(--red);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 200ms ease;
+}
+
+.hero-intro a:hover {
+  color: var(--red);
+}
+
 .interest-list {
   border-top: 1px solid var(--ink);
   display: grid;
@@ -527,6 +539,7 @@ h1 {
 }
 
 .publication-image {
+  align-self: center;
   aspect-ratio: 16 / 9;
   background: transparent;
   border: 0;
@@ -539,6 +552,17 @@ h1 {
   object-fit: contain;
   transform: scale(1.06);
   width: 100%;
+}
+
+/* Figures narrower than 16:9 would fill the box height and be cropped by the
+   scale; show them at their own aspect ratio, full column width, instead. */
+.publication-image.is-tall {
+  aspect-ratio: auto;
+}
+
+.publication-image.is-tall img {
+  height: auto;
+  transform: none;
 }
 
 .authors {
@@ -557,6 +581,11 @@ h1 {
 
 .author-name:last-child {
   margin-right: 0;
+}
+
+.author-self {
+  color: var(--ink);
+  font-weight: 700;
 }
 
 .publication-note {

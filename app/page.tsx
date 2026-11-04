@@ -3,6 +3,8 @@ import { SiGooglescholar } from "react-icons/si";
 import HoverVideoPreview from "./HoverVideoPreview";
 import VisitorMap from "./VisitorMap";
 
+const selfName = "Gang Yang";
+
 const news = [
   {
     date: "AUG 2026",
@@ -46,13 +48,40 @@ const publications = [
     additionalResources: [],
   },
   {
+    venue: "ARXIV PREPRINT",
+    title: "RoboColosseum: Evaluating Physical Intelligence at Scale In-The-Wild",
+    authors:
+      "Tan Sang Nguyen♥︎†, Yi Ru Wang♥︎†, Shailesh Shailesh♥︎†, Gang Yang♥︎, Jiamo Hu♥︎, Jianuo Jiang♥︎, Haoquan Fang♥︎, Zhongzheng Ren♥︎, Zhongyi Luo♥︎, Ian Chong♥︎, Aaron Tung♥︎, Santiago Pravisani♥︎, Minghui Lin, Yao Mo, Ishneet Singh, Benjamin Tee, Harold Soh, Siddhartha Srinivasa, Dieter Fox, David Hsu, Haoming Song, Maxime Ellerbach, Thomas Wolf, Pepijn Kooijmans♥︎, Ruijie He♥︎, Michael Cho♥︎, Jiafei Duan♥︎*",
+    note: "† Co-first author, ♥︎ Core contributor, * Corresponding author",
+    href: "https://arxiv.org/abs/2611.02497",
+    showPaper: true,
+    image: "/assets/images/robocolosseum-figure.webp",
+    imageAlt: "RoboColosseum overview of the Fine-tune Track, Open Track, global evaluation sites, and robot embodiments",
+    imageTall: true,
+    additionalResources: [
+      { label: "WEBSITE", href: "https://robocolosseum.ai/" },
+    ],
+  },
+  {
+    venue: "UNDER REVIEW",
+    title: "VLALagBench: Understanding When and Why VLA Inference Latency Matters",
+    authors:
+      "Qi Wen, Borui Xu, Hussein Amro, Hongshi Tan, Hanmin Lin, Chaoyi Ruan, Shanghao Liu, Gang Yang, Yuejiang Liu, Jiafei Duan, Bingsheng He, Jason Clemons, Christos Kozyrakis, Wenqi Jiang",
+    note: null,
+    href: "https://arxiv.org/abs/2611.03103",
+    showPaper: true,
+    image: "/assets/images/vlalagbench-figure.webp",
+    imageAlt: "VLALagBench overview linking dynamic manipulation tasks, a systematic latency study, and a task-success model",
+    additionalResources: [],
+  },
+  {
     venue: "XRM 2026",
     title: "Forest Remix: A Musical Forest with Custom Embodied Tangible\u00A0Hardware",
     authors:
       "Ambrose Kersley*, Gang Yang*, Yida Zhao*, Yihao Tao, Alhassane Jalloh, Sechan Yi",
     note: "* Equal contribution, listed alphabetically",
     href: null,
-    showPaper: false,
+    showPaper: true,
     image: "/assets/images/forest-remix-figure.png",
     imageAlt: "Forest Remix tangible controller design",
     additionalResources: [
@@ -63,7 +92,22 @@ const publications = [
 
 const projects = [
   {
-    year: "MAY 2026 — PRESENT",
+    year: "AUG 2026 — PRESENT",
+    title: "RoboColosseum",
+    subtitle: "Cross-Embodiment Real-World Robot Policy Evaluation",
+    text: "A distributed framework for evaluating VLA policies and frontier AI agents on real robots across four embodiments. Core contributor leading the SO-101 component, advised by Prof. Jiafei Duan.",
+    detailImage: "/assets/images/robocolosseum-figure.webp",
+    detailImageAlt: "RoboColosseum overview of the Fine-tune Track, Open Track, global evaluation sites, and robot embodiments",
+    details: [
+      "Led the SO-101 component across the Open and Fine-tune Tracks, fully fine-tuning five VLAs (π0.5, GR00T N1.7, MolmoAct2, G0.5, LingBot-VLA v2) on an identical 100-demo budget, with success spanning 37–82%.",
+      "Turned frontier LLMs (GPT-6 Astra, Claude Opus 5.5, Grok 4.7) into closed-loop SO-101 policies via multimodal tool calling, adding joint-limit and step-size safety checks and an IK-based end-effector mode.",
+      "Showed that model rankings are embodiment-specific: on SO-101, zero-shot Claude Opus 5.5 led the Open Track and GR00T N1.7 led fine-tuning, yet GR00T ranked fourth on Franka and YAM (Kendall’s W = 0.24).",
+    ],
+    tag: "MagicLab, NUS",
+    accent: "yellow",
+  },
+  {
+    year: "APR 2026 — JUL 2026",
     title: "CityLoop",
     subtitle: "Tool-Grounded Urban Navigation with Vision-Language Models",
     text: "A request-to-arrival urban navigation sandbox connecting online navigation, 2D Gaussian Splatting simulation, and real-world robot deployment through a shared policy interface.",
@@ -112,7 +156,7 @@ const projects = [
     accent: "green",
   },
   {
-    year: "JUN 2025 — SEP 2025",
+    year: "JUN 2025 — APR 2026",
     title: "ANN-enhanced MPC",
     subtitle: "Intelligent Control for Power Converters",
     text: "Neural-network-assisted model predictive control for renewable-energy power converters, validated through system simulation and hardware-in-the-loop testing.",
@@ -260,7 +304,9 @@ export default function Home() {
           </p>
           <div className="hero-intro">
             <p>
-              I am an MSc Robotics student at the National University of Singapore. My research sits at the intersection of embodied AI, multimodal vision-language models, spatial intelligence, and robot learning.
+              I am an MSc Robotics student at the National University of Singapore, where I work in{" "}
+              <a href="https://magiclab-nus.github.io/" target="_blank" rel="noreferrer">MagicLab</a> under the supervision of{" "}
+              <a href="https://jiafei1224.github.io/" target="_blank" rel="noreferrer">Prof. Jiafei Duan</a>. My research sits at the intersection of embodied AI, multimodal vision-language models, spatial intelligence, and robot learning.
             </p>
             <p>
               I build benchmarks, learning systems, and interactive experiences that connect visual reasoning with physical action — from global-scale urban navigation to tangible mixed-reality systems.
@@ -298,7 +344,7 @@ export default function Home() {
           {publications.map((publication, index) => (
             <article className="publication" key={publication.title}>
               <div className="publication-index">0{index + 1}</div>
-              <div className="publication-image">
+              <div className={`publication-image${publication.imageTall ? " is-tall" : ""}`}>
                 <img src={publication.image} alt={publication.imageAlt} />
               </div>
               <div className="publication-copy">
@@ -307,7 +353,13 @@ export default function Home() {
                 <p className="authors">
                   {publication.authors.split(", ").map((author, authorIndex, authorList) => (
                     <span className="author-name" key={author}>
-                      {author}{authorIndex < authorList.length - 1 ? "," : ""}
+                      {author.startsWith(selfName) ? (
+                        <>
+                          <strong className="author-self">{selfName}</strong>
+                          {author.slice(selfName.length)}
+                        </>
+                      ) : author}
+                      {authorIndex < authorList.length - 1 ? "," : ""}
                     </span>
                   ))}
                 </p>
