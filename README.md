@@ -33,6 +33,17 @@ The main page is in `app/page.tsx`, the visual system is in `app/globals.css`, a
 
 The layout is responsive and includes reduced-motion and keyboard-focus support.
 
+## Official URL and statistics hosting
+
+The public portfolio is `https://lalayang123456-ctrl.github.io/`. Its HTML
+declares this canonical URL, and `public/robots.txt` advertises its sitemap.
+The Sites origin `gang-yang-visitor-stats.lalayang-123456.chatgpt.site` hosts
+the visitor API. Its `/` and `/index.html` return permanent 301 redirects to
+the portfolio; its robots.txt permits crawling the redirect. Visitor API
+responses carry `X-Robots-Tag: noindex` and remain available to the portfolio.
+After a Worker build, verify routing and API behavior with
+`node --test tests/site-routing.test.mjs`.
+
 ## Private visitor trends
 
 The statistics backend stores `visitor_hourly_countries`: `hour_start_sgt`

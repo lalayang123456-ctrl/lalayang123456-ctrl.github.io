@@ -52,6 +52,7 @@ function isAllowedOrigin(origin: string | null) {
 function corsHeaders(request: Request) {
   const origin = request.headers.get("Origin");
   return {
+    "X-Robots-Tag": "noindex",
     "Access-Control-Allow-Headers": "Content-Type",
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     ...(origin && isAllowedOrigin(origin) ? { "Access-Control-Allow-Origin": origin, Vary: "Origin" } : {}),
@@ -162,6 +163,31 @@ async function handleVisitorMap(request: Request, env: Env) {
 const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
+
+    // Sites hosts the statistics API; the public portfolio lives on GitHub Pages.
+    // Keep the redirect crawlable so search engines can consolidate the old page.
+    if (url.hostname === "gang-yang-visitor-stats.lalayang-123456.chatgpt.site") {
+      if (
+        (request.method === "GET" || request.method === "HEAD") &&
+        (url.pathname === "/" || url.pathname === "/index.html")
+      ) {
+        const destination = new URL("https://lalayang123456-ctrl.github.io/");
+        destination.search = url.search;
+        return new Response(null, {
+          status: 301,
+          headers: {
+            Location: destination.href,
+            "Cache-Control": "public, max-age=3600",
+          },
+        });
+      }
+
+      if (url.pathname === "/robots.txt") {
+        return new Response(request.method === "HEAD" ? null : "User-agent: *\nAllow: /\nDisallow: /api/\n", {
+          headers: { "Content-Type": "text/plain; charset=utf-8" },
+        });
+      }
+    }
 
     if (url.pathname === "/api/visitors") {
       return handleVisitors(request, env);

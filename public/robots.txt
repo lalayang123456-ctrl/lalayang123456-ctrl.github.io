@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lalayang123456-ctrl.github.io/sitemap.xml

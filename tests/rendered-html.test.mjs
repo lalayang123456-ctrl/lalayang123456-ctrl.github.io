@@ -29,6 +29,7 @@ test("server-renders Gang Yang's academic portfolio", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>Gang Yang — Embodied AI Researcher<\/title>/i);
+  assert.match(html, /<link rel="canonical" href="https:\/\/lalayang123456-ctrl\.github\.io\/"/);
   assert.match(html, /Building intelligent/);
   assert.match(html, /class="hero-accent-agents">agents/);
   assert.match(html, /Publications/);

@@ -8,6 +8,7 @@ test("exports Gang Yang's academic portfolio for GitHub Pages", async () => {
   const html = await readFile(exportUrl, "utf8");
 
   assert.match(html, /<title>Gang Yang — Embodied AI Researcher<\/title>/i);
+  assert.match(html, /<link rel="canonical" href="https:\/\/lalayang123456-ctrl\.github\.io\/"/);
   assert.match(html, /Building intelligent/);
   assert.match(html, /class="hero-accent-agents">agents/);
   assert.match(html, /Publications/);
