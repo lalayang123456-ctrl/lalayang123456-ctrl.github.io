@@ -57,7 +57,7 @@ const publications = [
     title: "How Much Has Embodied AI Progressed? A Meta-Analysis on Robot Manipulation Benchmarks vs. VLA, WAM, and LLM Agents",
     authors:
       "Gang Yang*, Nigel Jian Wei Goh*, Shuo Sun†, Christina Dao Wen Lee, Xinru Wang, Alok Prakash, Chee Leong Teo, Marcelo H. Ang Jr., Thomas W. Malone",
-    note: "First Author · * Equal contribution · † Corresponding author",
+    note: "* Equal contribution · † Corresponding author",
     href: null,
     showPaper: true,
     image: "/assets/images/embodied-ai-progress-fig1.webp",

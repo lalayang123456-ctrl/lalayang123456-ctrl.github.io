@@ -51,7 +51,7 @@ test("exports Gang Yang's academic portfolio for GitHub Pages", async () => {
   assert.match(thirdPublication, /src="\/assets\/images\/embodied-ai-progress-fig1\.webp"/);
   assert.match(thirdPublication, /<span class="resource-label">PAPER<\/span>/);
   assert.match(thirdPublication, /href="https:\/\/lalayang123456-ctrl\.github\.io\/roboelo-web\/"[^>]*>WEBSITE\b/);
-  assert.match(thirdPublication, /First Author/);
+  assert.match(thirdPublication, /<p class="publication-note">\* Equal contribution · † Corresponding author<\/p>/);
 
   const projectsStart = html.indexOf('<section class="content-section" id="projects">');
   const firstProject = html.slice(projectsStart).split('class="project-card ')[1];
