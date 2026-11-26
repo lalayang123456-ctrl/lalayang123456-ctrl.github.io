@@ -11,6 +11,8 @@ test("exports Gang Yang's academic portfolio for GitHub Pages", async () => {
   assert.match(html, /<link rel="canonical" href="https:\/\/lalayang123456-ctrl\.github\.io\/"/);
   assert.match(html, /Building intelligent/);
   assert.match(html, /class="hero-accent-agents">agents/);
+  const intro = html.match(/<div class="hero-intro"><p>(.*?)<\/p>/)?.[1].replace(/<[^>]*>/g, "");
+  assert.match(intro, /At the Advanced Robotics Centre, .* under the supervision of Prof\. Teo Chee Leong and in collaboration with Dr\. Shuo Sun at the MIT Center for Collective Intelligence/);
   assert.match(html, /Publications/);
   assert.match(html, /Research Projects/);
   assert.match(html, /Professional Experience/);
@@ -34,8 +36,7 @@ test("exports Gang Yang's academic portfolio for GitHub Pages", async () => {
   assert.match(html, /href="https:\/\/github\.com\/lalayang123456-ctrl\/WalkerBench"/);
   assert.match(html, /href="https:\/\/www\.youtube\.com\/watch\?v=GBDFQY9WLPo"/);
   assert.doesNotMatch(html, />POSTER</);
-  const localPdfLinks = [...html.matchAll(/href="((?!https?:\/\/)[^"]*\.pdf(?:[?#][^"]*)?)"/gi)];
-  assert.deepEqual(localPdfLinks.map(([, href]) => href), ["/embodied-ai-progress-preprint.pdf"]);
+  assert.doesNotMatch(html, /href="(?!https?:\/\/)[^"]*\.pdf(?:[?#][^"]*)?"/i);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/);
 
   const publicationsStart = html.indexOf('<section class="content-section" id="publications">');
@@ -46,7 +47,8 @@ test("exports Gang Yang's academic portfolio for GitHub Pages", async () => {
   const thirdPublication = publicationsHtml.split('<article class="publication">')[3];
   assert.match(thirdPublication, /How Much Has Embodied AI Progressed\?/);
   assert.match(thirdPublication, /src="\/assets\/images\/embodied-ai-progress-fig1\.webp"/);
-  assert.match(thirdPublication, /href="\/embodied-ai-progress-preprint\.pdf"/);
+  assert.match(thirdPublication, /<span class="resource-label">PAPER<\/span>/);
+  assert.match(thirdPublication, /href="https:\/\/lalayang123456-ctrl\.github\.io\/roboelo-web\/"[^>]*>WEBSITE\b/);
   assert.match(thirdPublication, /First Author/);
 
   const projectsStart = html.indexOf('<section class="content-section" id="projects">');
@@ -54,7 +56,7 @@ test("exports Gang Yang's academic portfolio for GitHub Pages", async () => {
   assert.match(firstProject, /Measuring Progress in Embodied AI/);
   assert.match(firstProject, /Advanced Robotics Centre, NUS/);
   assert.match(firstProject, /First Author/);
-  assert.doesNotMatch(html, /roboelo/i);
+  assert.doesNotMatch((thirdPublication + firstProject).replace(/<[^>]*>/g, ""), /roboelo/i);
 
   const paper = await readFile(new URL("../dist/client/embodied-ai-progress-preprint.pdf", import.meta.url));
   const figure = await readFile(new URL("../dist/client/assets/images/embodied-ai-progress-fig1.webp", import.meta.url));

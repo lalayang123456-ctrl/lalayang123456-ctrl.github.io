@@ -58,12 +58,14 @@ const publications = [
     authors:
       "Gang Yang*, Nigel Jian Wei Goh*, Shuo Sun†, Christina Dao Wen Lee, Xinru Wang, Alok Prakash, Chee Leong Teo, Marcelo H. Ang Jr., Thomas W. Malone",
     note: "First Author · * Equal contribution · † Corresponding author",
-    href: "/embodied-ai-progress-preprint.pdf",
+    href: null,
     showPaper: true,
     image: "/assets/images/embodied-ai-progress-fig1.webp",
     imageAlt: "Figure 1. Robot policy capability and benchmark task difficulty on a common Elo scale",
     imageUncropped: true,
-    additionalResources: [],
+    additionalResources: [
+      { label: "WEBSITE", href: "https://lalayang123456-ctrl.github.io/roboelo-web/" },
+    ],
   },
   {
     venue: "ARXIV PREPRINT",
@@ -350,11 +352,15 @@ export default function Home() {
           </p>
           <div className="hero-intro">
             <p>
-              I am an MSc Robotics student at the National University of Singapore, where I work in{" "}
-              <a href="https://magiclab-nus.github.io/" target="_blank" rel="noreferrer">MagicLab</a> under the supervision of{" "}
-              <a href="https://jiafei1224.github.io/" target="_blank" rel="noreferrer">Prof. Jiafei Duan</a>. My research sits at the intersection of embodied AI, vision-language navigation, spatial intelligence, vision-language-action models, and real-world robot evaluation.
+              I am an MSc student in Robotics at the National University of Singapore, where I work in{" "}
+              <a href="https://magiclab-nus.github.io/" target="_blank" rel="noreferrer">MagicLab</a> under{" "}
+              <a href="https://jiafei1224.github.io/" target="_blank" rel="noreferrer">Prof. Jiafei Duan</a>’s supervision.
+              At the Advanced Robotics Centre, I study how to measure progress in robot manipulation under the supervision of{" "}
+              <a href="https://cde.nus.edu.sg/me/staff/teo-chee-leong/" target="_blank" rel="noreferrer">Prof. Teo Chee Leong</a> and in collaboration with{" "}
+              <a href="https://m3s.mit.edu/our-team/shuo-sun" target="_blank" rel="noreferrer">Dr. Shuo Sun</a> at the MIT Center for Collective Intelligence.
             </p>
             <p>
+              My research sits at the intersection of embodied AI, vision-language navigation, spatial intelligence, vision-language-action models, and real-world robot evaluation.
               I build benchmarks and closed-loop systems that connect visual reasoning with physical action — from global-scale urban navigation on humanoid robots to evaluating robot policies on real robots across embodiments.
             </p>
             <p>
