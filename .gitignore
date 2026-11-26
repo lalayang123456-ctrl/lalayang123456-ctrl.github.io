@@ -24,6 +24,7 @@
 
 # private documents kept out of the public repository
 *.pdf
+!/public/embodied-ai-progress-preprint.pdf
 
 # debug
 npm-debug.log*

@@ -34,11 +34,30 @@ test("exports Gang Yang's academic portfolio for GitHub Pages", async () => {
   assert.match(html, /href="https:\/\/github\.com\/lalayang123456-ctrl\/WalkerBench"/);
   assert.match(html, /href="https:\/\/www\.youtube\.com\/watch\?v=GBDFQY9WLPo"/);
   assert.doesNotMatch(html, />POSTER</);
-  assert.doesNotMatch(html, /href="(?!https?:\/\/)[^"]*\.pdf(?:[?#][^"]*)?"/i);
+  const localPdfLinks = [...html.matchAll(/href="((?!https?:\/\/)[^"]*\.pdf(?:[?#][^"]*)?)"/gi)];
+  assert.deepEqual(localPdfLinks.map(([, href]) => href), ["/embodied-ai-progress-preprint.pdf"]);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/);
 
   const publicationsStart = html.indexOf('<section class="content-section" id="publications">');
   const educationStart = html.indexOf('<section class="content-section" id="education">');
   const publicationsHtml = html.slice(publicationsStart, educationStart);
   assert.ok(publicationsHtml.indexOf("CityLoop: Sandbox") < publicationsHtml.indexOf("Forest Remix:"));
+
+  const thirdPublication = publicationsHtml.split('<article class="publication">')[3];
+  assert.match(thirdPublication, /How Much Has Embodied AI Progressed\?/);
+  assert.match(thirdPublication, /src="\/assets\/images\/embodied-ai-progress-fig1\.webp"/);
+  assert.match(thirdPublication, /href="\/embodied-ai-progress-preprint\.pdf"/);
+  assert.match(thirdPublication, /First Author/);
+
+  const projectsStart = html.indexOf('<section class="content-section" id="projects">');
+  const firstProject = html.slice(projectsStart).split('class="project-card ')[1];
+  assert.match(firstProject, /Measuring Progress in Embodied AI/);
+  assert.match(firstProject, /Advanced Robotics Centre, NUS/);
+  assert.match(firstProject, /First Author/);
+  assert.doesNotMatch(html, /roboelo/i);
+
+  const paper = await readFile(new URL("../dist/client/embodied-ai-progress-preprint.pdf", import.meta.url));
+  const figure = await readFile(new URL("../dist/client/assets/images/embodied-ai-progress-fig1.webp", import.meta.url));
+  assert.equal(paper.subarray(0, 5).toString(), "%PDF-");
+  assert.equal(figure.subarray(8, 12).toString(), "WEBP");
 });

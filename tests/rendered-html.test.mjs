@@ -54,7 +54,7 @@ test("server-renders Gang Yang's academic portfolio", async () => {
   assert.match(html, /APR 2026 — JUL 2026/);
   assert.match(html, /JUN 2025 — APR 2026/);
   assert.match(html, /<span class="resource-label">PAPER<\/span>/);
-  assert.equal(html.match(/<strong class="author-self">Gang Yang<\/strong>/g)?.length, 5);
+  assert.equal(html.match(/<strong class="author-self">Gang Yang<\/strong>/g)?.length, 6);
   assert.match(html, /EMBODIED AI \/ VLN \/ VLA/);
   assert.match(html, /vision-language navigation, spatial intelligence, vision-language-action models, and real-world robot evaluation/);
   assert.match(html, /<span>Robot Evaluation &amp; Benchmarking<\/span>/);

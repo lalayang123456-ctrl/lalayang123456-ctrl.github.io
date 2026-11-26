@@ -556,13 +556,12 @@ h1 {
   width: 100%;
 }
 
-/* Figures narrower than 16:9 would fill the box height and be cropped by the
-   scale; show them at their own aspect ratio, full column width, instead. */
-.publication-image.is-tall {
+/* Preserve the full figure where scaling would crop labels or other content. */
+.publication-image.is-uncropped {
   aspect-ratio: auto;
 }
 
-.publication-image.is-tall img {
+.publication-image.is-uncropped img {
   height: auto;
   transform: none;
 }

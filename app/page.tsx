@@ -53,6 +53,19 @@ const publications = [
     additionalResources: [],
   },
   {
+    venue: "PREPRINT",
+    title: "How Much Has Embodied AI Progressed? A Meta-Analysis on Robot Manipulation Benchmarks vs. VLA, WAM, and LLM Agents",
+    authors:
+      "Gang Yang*, Nigel Jian Wei Goh*, Shuo Sun†, Christina Dao Wen Lee, Xinru Wang, Alok Prakash, Chee Leong Teo, Marcelo H. Ang Jr., Thomas W. Malone",
+    note: "First Author · * Equal contribution · † Corresponding author",
+    href: "/embodied-ai-progress-preprint.pdf",
+    showPaper: true,
+    image: "/assets/images/embodied-ai-progress-fig1.webp",
+    imageAlt: "Figure 1. Robot policy capability and benchmark task difficulty on a common Elo scale",
+    imageUncropped: true,
+    additionalResources: [],
+  },
+  {
     venue: "ARXIV PREPRINT",
     title: "RoboColosseum: Evaluating Physical Intelligence at Scale In-The-Wild",
     authors:
@@ -62,7 +75,7 @@ const publications = [
     showPaper: true,
     image: "/assets/images/robocolosseum-figure.webp",
     imageAlt: "RoboColosseum overview of the Fine-tune Track, Open Track, global evaluation sites, and robot embodiments",
-    imageTall: true,
+    imageUncropped: true,
     additionalResources: [
       { label: "WEBSITE", href: "https://robocolosseum.ai/" },
     ],
@@ -96,6 +109,21 @@ const publications = [
 ];
 
 const projects = [
+  {
+    year: "AUG 2026 — PRESENT",
+    title: "Measuring Progress in Embodied AI",
+    subtitle: "A Unified Elo Scale for Robot Manipulation Benchmarks",
+    text: "First Author. Developed a statistical framework that compares robot policy capabilities and task difficulties across benchmarks on a single Elo scale.",
+    detailImage: "/assets/images/embodied-ai-progress-fig1.webp",
+    detailImageAlt: "Figure 1. Robot policy capability and benchmark task difficulty on a common Elo scale",
+    details: [
+      "Analyzed 44 vision-language-action models, world-action models, and LLM agents across LIBERO, SimplerEnv, RoboTwin 2.0, and RoboDojo, covering 212 test cases and 395,092 trials.",
+      "Predicted mean scores on held-out benchmarks with an error of 6.8 percentage points, compared with 11.9 for the per-task average.",
+      "Found that the best policy's capability improved about ten times faster after June 2026 and forecast when progress at that pace could saturate RoboDojo.",
+    ],
+    tag: "Advanced Robotics Centre, NUS",
+    accent: "blue",
+  },
   {
     year: "AUG 2026 — PRESENT",
     title: "RoboColosseum",
@@ -362,7 +390,7 @@ export default function Home() {
           {publications.map((publication, index) => (
             <article className="publication" key={publication.title}>
               <div className="publication-index">0{index + 1}</div>
-              <div className={`publication-image${publication.imageTall ? " is-tall" : ""}`}>
+              <div className={`publication-image${publication.imageUncropped ? " is-uncropped" : ""}`}>
                 <img src={publication.image} alt={publication.imageAlt} />
               </div>
               <div className="publication-copy">
