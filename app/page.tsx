@@ -352,12 +352,13 @@ export default function Home() {
           </p>
           <div className="hero-intro">
             <p>
-              I am an MSc student in Robotics at the National University of Singapore, where I work in{" "}
-              <a href="https://magiclab-nus.github.io/" target="_blank" rel="noreferrer">MagicLab</a> under{" "}
-              <a href="https://jiafei1224.github.io/" target="_blank" rel="noreferrer">Prof. Jiafei Duan</a>’s supervision.
-              At the Advanced Robotics Centre, I study how to measure progress in robot manipulation under the supervision of{" "}
-              <a href="https://cde.nus.edu.sg/me/staff/teo-chee-leong/" target="_blank" rel="noreferrer">Prof. Teo Chee Leong</a> and in collaboration with{" "}
-              <a href="https://m3s.mit.edu/our-team/shuo-sun" target="_blank" rel="noreferrer">Dr. Shuo Sun</a> at the MIT Center for Collective Intelligence.
+              I am an MSc student in Robotics at the National University of Singapore.
+              I work at{" "}
+              <a href="https://magiclab-nus.github.io/" target="_blank" rel="noreferrer">MagicLab</a> under the supervision of{" "}
+              <a href="https://jiafei1224.github.io/" target="_blank" rel="noreferrer">Prof. Jiafei Duan</a> and at the{" "}
+              <a href="https://arc.nus.edu.sg/" target="_blank" rel="noreferrer">Advanced Robotics Centre</a> under the supervision of{" "}
+              <a href="https://cde.nus.edu.sg/me/staff/teo-chee-leong/" target="_blank" rel="noreferrer">Prof. Teo Chee Leong</a> and collaborate with{" "}
+              <a href="https://m3s.mit.edu/our-team/shuo-sun" target="_blank" rel="noreferrer">Dr. Shuo Sun</a>.
             </p>
             <p>
               My research sits at the intersection of embodied AI, vision-language navigation, spatial intelligence, vision-language-action models, and real-world robot evaluation.

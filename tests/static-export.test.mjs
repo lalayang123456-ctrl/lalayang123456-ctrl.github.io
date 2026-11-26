@@ -11,8 +11,10 @@ test("exports Gang Yang's academic portfolio for GitHub Pages", async () => {
   assert.match(html, /<link rel="canonical" href="https:\/\/lalayang123456-ctrl\.github\.io\/"/);
   assert.match(html, /Building intelligent/);
   assert.match(html, /class="hero-accent-agents">agents/);
-  const intro = html.match(/<div class="hero-intro"><p>(.*?)<\/p>/)?.[1].replace(/<[^>]*>/g, "");
-  assert.match(intro, /At the Advanced Robotics Centre, .* under the supervision of Prof\. Teo Chee Leong and in collaboration with Dr\. Shuo Sun at the MIT Center for Collective Intelligence/);
+  const introHtml = html.match(/<div class="hero-intro"><p>(.*?)<\/p>/)?.[1];
+  assert.match(introHtml, /href="https:\/\/arc\.nus\.edu\.sg\/"[^>]*>Advanced Robotics Centre<\/a>/);
+  const intro = introHtml.replace(/<[^>]*>/g, "");
+  assert.match(intro, /I work at MagicLab under the supervision of Prof\. Jiafei Duan and at the Advanced Robotics Centre under the supervision of Prof\. Teo Chee Leong and collaborate with Dr\. Shuo Sun\.$/);
   assert.match(html, /Publications/);
   assert.match(html, /Research Projects/);
   assert.match(html, /Professional Experience/);
